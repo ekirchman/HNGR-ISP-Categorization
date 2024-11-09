@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>My test page</title>
+  </head>
+  <body>
+    {% if document_list %}
+    <ul>
+    {% for document in document_list %}
+        <li><a href="/papers/{{ document.id }}/">{{ document.f_path }}</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No documents are available.</p>
+    {% endif %}
+  </body>
+</html>
+
+
