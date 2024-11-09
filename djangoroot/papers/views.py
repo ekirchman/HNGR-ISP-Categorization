@@ -11,4 +11,10 @@ def index(request):
     return render(request, "papers/index.html", context)
 
 def detail(request, document_id):
-    return HttpResponse("You're looking at document %s." % document_id)
+    #return HttpResponse("You're looking at document %s." % document_id)
+    try:
+        document = Document.objects.get(pk=document_id)
+    except Document.DoesNotExist:
+        raise Http404("Document does not exist")
+    return render(request, "papers/detail.html", {"document": document})
+
