@@ -9,10 +9,10 @@ class Document(models.Model):
     pub_date = models.DateTimeField("date published")
     fname = models.CharField(max_length=200)
     lname = models.CharField(max_length=200)
-    f_path = models.CharField(max_length=200)
+    f_path = models.FileField(upload_to='documents/')
 
     def __str__(self):
-        return self.f_path
+        return str(self.f_path)
 
 
 class Doc_theme(models.Model):
