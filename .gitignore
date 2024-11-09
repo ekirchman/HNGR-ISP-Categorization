@@ -1,0 +1,11 @@
+*.pyc
+*.DS_Store
+*.pdf
+*.docx
+*.zip
+*.jpeg
+*.jpg
+*.txt
+*.mp4
+*.html
+.env
