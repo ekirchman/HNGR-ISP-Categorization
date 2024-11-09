@@ -9,3 +9,4 @@
 *.mp4
 *.html
 .env
+.venv
