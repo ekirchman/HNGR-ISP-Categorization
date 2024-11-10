@@ -3,12 +3,13 @@ from django.db import models
 # Create your models here.
 
 class Document(models.Model):
-    language = models.CharField(max_length=200)
     major = models.CharField(max_length=200)
     city = models.CharField(max_length=200)
-    pub_date = models.DateTimeField("date published")
+    country = models.CharField(max_length=200)
+    year = models.IntegerField()
     fname = models.CharField(max_length=200)
     lname = models.CharField(max_length=200)
+    advisor = models.CharField(max_length=200)
     f_path = models.FileField(upload_to='documents/')
 
     def __str__(self):

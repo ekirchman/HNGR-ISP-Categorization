@@ -5,4 +5,4 @@ import datetime
 class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
-        fields = ['language', 'major', 'city', 'pub_date', 'fname', 'lname', 'f_path']
+        fields = ['major', 'city', 'country', 'year', 'fname', 'lname', 'advisor', 'f_path']

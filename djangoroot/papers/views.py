@@ -6,7 +6,7 @@ from .forms import DocumentForm
 # Create your views here.
 
 def index(request):
-    document_list = Document.objects.order_by("-pub_date")[:5]
+    document_list = Document.objects.order_by("-year")[:5]
     template = loader.get_template("papers/index.html")
     context = { "document_list": document_list  }
     return render(request, "papers/index.html", context)
