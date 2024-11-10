@@ -1,25 +1,17 @@
 from django.db import models
 
-# Create your models here.
-
+# TODO: In the "ai output" json that we generate, we should include the path
+#       where we have the documents stored,
+#       assuming we just locally store them in a directory on the server.
 class Document(models.Model):
-    major = models.CharField(max_length=200)
-    city = models.CharField(max_length=200)
-    country = models.CharField(max_length=200)
-    year = models.IntegerField()
-    fname = models.CharField(max_length=200)
-    lname = models.CharField(max_length=200)
-    advisor = models.CharField(max_length=200)
     f_path = models.FileField(upload_to='documents/')
+    year = models.CharField(max_length=5, null=True, blank=True)
+    city = models.CharField(max_length=30, null=True, blank=True)
+    country = models.CharField(max_length=30, null=True, blank=True)
+    major = models.CharField(max_length=30, null=True, blank=True)
+    author = models.CharField(max_length=30, null=True, blank=True)
+    advisor = models.CharField(max_length=30, null=True, blank=True)
+    themes = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
-        return str(self.f_path)
-
-
-class Doc_theme(models.Model):
-    document = models.ForeignKey(Document, on_delete=models.CASCADE)
-    theme_name = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.theme_name
-
+        return f"{self.f_path}"
